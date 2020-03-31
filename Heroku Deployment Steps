@@ -1,0 +1,34 @@
+Before start deployment do the follow:
+(1) Create a free Heroku account.
+(2) Install Git form below link
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+(3) Heroku CLI requires Git, the popular version control system. install Heroku CLI from below link
+https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+ 
+Deployment Steps on Heroku:
+(1) Copy project folder and keep it different location
+(2) Remove unwanted files like (Procfile.lock, *.pyc, __pycache__ , etc)
+(3) Open command prompt and go to your project folder
+(4) Create virtual environment outside the project folder ( virtualenv .)
+(5) Activate virtual environment and go to project folder
+(6) Install the all required library for the project and also install gunicorn, django-heroku  library
+(7) Run your project to check if it is working properly
+(8) Run command		pip freeze > requirements.txt
+(9) Create new file with "Procfile" name (no extension) and type 	web: gunicorn covid19_master.wsgi
+(10) Add 	import django_heroku		on top of settings.py file
+(11) Add	django_heroku.settings(locals())	on bottom of settings.py file
+(12) Run command 	heroku login -i 	and complete the login process
+(13) Run command 	heroku create <type any unique name for domain>
+(14) Run command 	heroku open 	it will open blank app on browser
+(15) Run command 	heroku git:remote -a <app name which you just created>
+(16) Run command 	git init
+(17) Run command 	git add --all 	
+(18) Run command 	git status
+(19) Run command 	git commit -m "first commit"
+(20) Run command 	git push heroku master
+(21) Go to heroku and open your app
+
+For Database activityL
+(22) Run command 	heroku run bash
+(23) Run command 	python manage.py migrate
+(24) Run command 	python manage.py createsuperuser
